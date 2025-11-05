@@ -7,6 +7,7 @@ import java.util.Locale;
 import java.util.Scanner;
 
 import model.entities.Reservation;
+import model.exceptions.DomainExcepction;
 
 public class Program {
 
@@ -38,9 +39,11 @@ public class Program {
 		} catch (ParseException e) {
 			System.out.println("Invalid date format");
 
-		} catch (IllegalArgumentException e) {
+		} catch (DomainExcepction e) {
 			System.out.println("Error in reservation: " + e.getMessage());
 
+		} catch (RuntimeException e) {
+			System.out.println("Unexpected error");
 		}
 
 		sc.close();
